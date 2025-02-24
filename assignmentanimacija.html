@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Assignment Animacija</title>
+
+	<style>
+
+		body {
+
+			margin: 0px auto;
+			background-color: #050210;
+		}
+		#okvir {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 800px;
+			height: 800px;
+			margin: 0px auto;
+			margin-top: 100px;
+			background: #050210;
+			opacity: 0.95;
+
+
+			
+		}
+
+		#krug {
+			position:relative;
+			display: flex;
+			align-items: center;
+			width: 330px;
+			height: 330px;
+			background: repeating-linear-gradient(271deg, #fb5dad,#55fb9f,#b97aff);
+			box-shadow: 0px 0px 40px 40px rgba(255, 255, 255, 0.177);
+			justify-content: center;
+			
+			
+
+			margin: 0px auto;
+
+			border: 1px transparent #fb5dad;
+			border-radius: 100%;
+
+			animation-name: my-animation;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+			animation-delay: 1s;
+
+		}
+
+		#krug2 {
+			position:relative;
+			display:flex;
+			width: 280px;
+			height: 280px;
+			background: black;
+			box-shadow: inset 0px 0px 50px 50px rgba(141, 146, 209, 0.177);
+
+			margin: 0px auto;
+		
+			
+			border: 1px transparent #fb5dad;
+			border-radius: 100%;
+		
+
+			animation-name: my-animation2;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+			animation-delay: 1s;
+		}
+
+		#krug3 {
+			position:relative;
+			display:flex;
+			align-items: center;
+			width: 270px;
+			height: 270px;
+			background-color: rgba(38, 38, 106, 0.204) ;
+			border: 1px transparent #fb5dad;
+			border-radius: 100%;
+
+			animation-name: scale-up-down;
+			animation-duration: 2s;
+			animation-iteration-count: infinite;
+			animation-delay: 2s;
+			animation-timing-function: cubic-bezier(0.5, -0.34, 0.25, 1);
+			animation-direction: normal;
+
+		}
+
+		@keyframes my-animation {
+			0 %{
+				transform: rotate3d(0, 0, 1, 0deg);
+			}
+			25%{
+				transform: rotate3d(0, 0, 1, 60deg);
+			}
+			33% {
+				transform: rotate3d(0, 0, 1, 120deg);
+			}
+			50% {
+				transform:  rotate3d(0, 0, 1, 180deg);
+			}
+			80% {
+				transform: rotate3d(0, 0, 1, 250deg);
+			}
+			100% {
+				transform: rotate3d(0, 0, 1, 360deg);
+			}
+		}
+
+		@keyframes my-animation2 {
+			0 %{
+				transform: rotate3d(0, 0, 1, 0deg);
+			}
+			25%{
+				transform: rotate3d(0, 0, 1, 60deg);
+			}
+			33% {
+				transform: rotate3d(0, 0, 1, 120deg);
+			}
+			50% {
+				transform:  rotate3d(0, 0, 1, 180deg);
+			}
+			80% {
+				transform: rotate3d(0, 0, 1, 250deg);
+			}
+			100% {
+				transform: rotate3d(0, 0, 1, 360deg);
+			}
+
+		}
+
+		@keyframes scale-up-down {
+			0%, 100% {
+				transform: scale(1);
+			}
+			25%{
+				transform:scale(0.25);
+			}
+			33% {
+				transform: scale(0.5);
+			}
+			50% {
+				transform:  scale(0.75);
+			}
+			80% {
+				transform: scale(0.9);
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="box" id="okvir">
+		<div class="box" id="krug">
+			<div class="box" id="krug2">
+				<div class="box" id="krug3"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
