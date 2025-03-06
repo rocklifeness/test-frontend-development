@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Assignment - Program za obavljanje osnovnih aritmetičkih operacija</title>
+</head>
+<body>
+	<script>
+
+		function calculate(num1, num2, operator) {
+			switch (operator) {
+				case '+' :
+					return num1 + num2;
+				case '-' :
+					return num1 - num2;
+				case '*' :
+					return num1 * num2;
+				case '/' :
+					return num1 / num2;
+				default:
+					return 'Invalid operation';
+			}
+		}
+
+			let number1 = parseFloat(prompt("Please enter first number: "));
+			let number2 = parseFloat(prompt("Please enter second number: "));
+			let operator = prompt("Enter the aritmetic function of your choosing (+, -, *, /): ");
+
+			let result = calculate(number1, number2, operator);
+
+			alert("The result is: " + result);
+	
+		 
+	
+
+		
+
+	</script>
+</body>
+</html>
