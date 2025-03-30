@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 3- Responsive Gallery</title>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        font-size: 18px;
+        color: grey;
+      }
+
+      .main-container {
+        display: flex;
+        flex-direction:column;
+        flex: auto auto auto;
+       align-items:center ;
+        grid-template-rows: 3 1fr;
+        width: 80vw;
+        height: 80vh;
+        margin: 0 auto;
+        font-size: calc(13px + (20 - 13) * ((100vw - 320px) / (1600 - 320)));
+      }
+      .tile-container {
+        display: grid;
+        flex-grow: 1;
+        width: 80vw;
+        height: 60vh;
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: minmax(180px, 160px);
+        gap: 10px;
+        padding: 10px;
+        align-content: space-around;
+        justify-content: space-around;
+
+        grid-template-areas:
+          "header header"
+          "tile-container" "tile-container"
+          "footer footer";
+      }
+
+      .box {
+        display: grid;
+        flex-flow: row wrap;
+        width: 180px;
+        height: 160px;
+        margin: 12px;
+        padding: 12px;
+        background: linear-gradient(
+              rgb(137, 208, 236) 80%,
+              rgb(248, 249, 249) 20%
+            )
+            20%,
+          url("placeholder-image.png");
+        background-blend-mode: overlay;
+        background-position: center;
+        background-size: contain;
+        border: 1px solid rgb(201, 203, 209);
+        border-radius: 10px;
+
+        justify-content: flex-start;
+        justify-content: center;
+        align-items: flex-end;
+        text-align: center;
+      }
+
+      .box:hover {
+        background: linear-gradient(
+              rgb(98, 160, 184) 80%,
+              rgb(193, 212, 212) 20%
+            )
+            20%,
+          url("placeholder-image.png");
+        background-blend-mode: overlay;
+        background-position: center;
+        background-size: contain;
+        border: 1px solid rgb(159, 161, 169);
+        border-radius: 10px;
+        color: rgb(70, 66, 66);
+      }
+
+      span[data-descr] {
+        position: relative;
+        font-weight: normal;
+        color: grey;
+        cursor: help;
+      }
+      span[data-descr]:hover::after {
+        content: attr(data-descr);
+        position: absolute;
+        left: 0;
+        top: 35px;
+        min-width: 140px;
+        background-color: rgba(117, 114, 114, 0.8);
+        color: white;
+        border-radius: 4px;
+        padding: 12px;
+        font-size: 14px;
+        font-weight: normal;
+      }
+
+      header {
+        width: 80vw;
+        height: 10%;
+        border: 1px solid rgb(252, 251, 251);
+        border-radius: 10px;
+        grid-area: header;
+        background-color: rgb(248, 245, 245);
+      }
+      footer {
+        display: grid;
+        grid-column: 3 1fr;
+        align-self: end;
+        grid-area: footer;
+        width: 80vw;
+        height: 30%;
+        border: 1px solid rgb(252, 251, 251);
+        border-radius: 10px;
+        background-color: rgb(251, 248, 248);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: grey;
+      }
+
+      header,
+      footer {
+        flex: 1;
+        flex-flow: column wrap ;
+        grid-area: span;
+        padding: 20px;
+        font-size: 18px;
+        width: 80vw;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .main-container {
+          flex-direction: column;
+        }
+        .tile-container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        body {
+          font-size: 2.2vw;
+        }
+        header,
+        footer {
+          padding: 20px;
+          font-size: 18px;
+        }
+        footer {
+          align-self: flex-end;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+         .main-container {
+          flex-direction: column;
+        }
+        .tile-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        body {
+          font-size: 2.5vw;
+        }
+        header,
+        footer {
+          padding: 15px;
+          font-size: 16px;
+        }
+      }
+
+      @media screen and (max-width: 414px) {
+         .main-container {
+          flex-direction: column;
+        }
+        .tile-container {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        body {
+          font-size: 2.8vw;
+        }
+        header,
+        footer {
+          padding: 10px;
+          font-size: 14px;
+        }
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <header>Gallery Heading</header>
+      <div class="tile-container">
+        <div class="box" id="box1">
+          <span data-descr="kliknite dvaput da otvorite sadržaj"
+            >Image Title</span
+          >
+        </div>
+        <div class="box" id="box2">
+          <span data-descr="kliknite dvaput da otvorite sadržaj"
+            >Image Title</span
+          >
+        </div>
+        <div class="box" id="box3">
+          <span data-descr="kliknite dvaput da otvorite sadržaj"
+            >Image Title</span
+          >
+        </div>
+        <div class="box" id="box4">
+          <span data-descr="kliknite dvaput da otvorite sadržaj"
+            >Image Title</span
+          >
+        </div>
+        <div class="box" id="box5">
+          <span data-descr="kliknite dvaput da otvorite sadržaj"
+            >Image Title</span
+          >
+        </div>
+        <div class="box" id="box6">
+          <span data-descr="kliknite dvaput da otvorite sadržaj"
+            >Image Title</span
+          >
+        </div>
+        <div class="box" id="box7">
+          <span data-descr="kliknite dvaput da otvorite sadržaj"
+            >Image Title</span
+          >
+        </div>
+        <div class="box" id="box8">
+          <span data-descr="kliknite dvaput da otvorite sadržaj"
+            >Image Title</span
+          >
+        </div>
+        <div class="box" id="box9">
+          <span data-descr="kliknite dvaput da otvorite sadržaj"
+            >Image Title</span
+          >
+        </div>
+        <div class="box" id="box10">
+          <span data-descr="kliknite dvaput da otvorite sadržaj"
+            >Image Title</span>
+        </div>
+      </div>
+      <footer>
+        <p>
+          « Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod
+          tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrum exercitationem ullam corporis suscipit
+          laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum
+          dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+          nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+          aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in
+          voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint obcaecat cupiditat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum. »
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
